@@ -1,5 +1,5 @@
 import conectar from "./Conexao.js";
-import Evento from "../modelo/evento.js";
+import Evento from "../modelo/Evento.js";
 
 export default class ClienteDao {
     async gravar (evento) {
@@ -25,7 +25,7 @@ export default class ClienteDao {
     async atualizar (evento) {
         if (evento instanceof Evento) {
             const conexao = await conectar();
-            const sql =`update eventos set titulo = ?, descricao = ?, data = ?, horario = ?, local = ?, precoIngresso = ?, ingressosDisponiveis = ?`;
+            const sql =`update eventos set titulo = ?, descricao = ?, data = ?, horario = ?, local = ?, precoIngresso = ?, ingressosDisponiveis = ? where id = ?`;
         
             const parametros = [
                 evento.titulo,
@@ -34,7 +34,8 @@ export default class ClienteDao {
                 evento.horario,
                 evento.local,
                 evento.precoIngresso,
-                evento.ingressosDisponiveis
+                evento.ingressosDisponiveis,
+                evento.id
             ];
 
             await conexao.execute(sql, parametros);
@@ -59,11 +60,12 @@ export default class ClienteDao {
         }
         let sql = '';
         if (isNaN(termoDePesquisa)) {
-            sql = `select * from eventos where titulo like '%?%'`;
+            sql = `select * from eventos where titulo like ?`;
+            termoDePesquisa = '%' + termoDePesquisa + '%';
         }
         else {
             sql = `select * from eventos where id = ?`;
-        
+                    
         }
 
         const conexao = await conectar();
@@ -73,6 +75,7 @@ export default class ClienteDao {
 
         for (const registro of registros) {
             const evento = new Evento(
+                registro.id,
                 registro.titulo,
                 registro.descricao,
                 registro.data,

@@ -1,13 +1,23 @@
-import Evento from "./modelo/evento.js";
+import Evento from "./modelo/Evento.js";
 
-const evento = new Evento(0,
-    "Copa do Mundo 2022",
-    "Copa do Mundo 2022",
-    "2022-06-12",
+const evento = new Evento(1,
+    "Copa do Mundo 2026",
+    "Copa do Mundo 2026",
+    "2026-06-12",
     "10:00",
-    "Brasil",
+    "França",
     100,
     100
     );
 
-    console.log(evento);
+
+let listaDeEventos = [];
+evento.consultar("3").then((listaDeEventos) => {
+    for (const evento of listaDeEventos) {
+        console.log(evento.toJSON());
+    }
+}).catch((erro) => {
+    console.log('Descrição do erro:\n'+erro);
+});
+
+
