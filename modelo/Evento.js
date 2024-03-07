@@ -1,6 +1,7 @@
 //Título; descrição; data; horário; local; preço por ingresso; ingressos disponíveis;
 import EventoDAO from '../persistencia/EventoDAO.js'
 export default class Evento {
+    #id
     #titulo;
     #descricao;
     #data;
@@ -9,14 +10,15 @@ export default class Evento {
     #precoIngresso;
     #ingressosDisponiveis;
 
-    constructor (titulo, descricao, data, horario, local, precoIngresso, ingressosDisponiveis) {
-        this.titulo = titulo;
-        this.descricao = descricao;
-        this.data = data;
-        this.horario = horario;
-        this.local = local;
-        this.precoIngresso = precoIngresso;
-        this.ingressosDisponiveis = ingressosDisponiveis;
+    constructor (id = '', titulo = '', descricao = '', data = '', horario = '', local = '', precoIngresso = '', ingressosDisponiveis = '') {
+        this.#id = id
+        this.#titulo = titulo;
+        this.#descricao = descricao;
+        this.#data = data;
+        this.#horario = horario;
+        this.#local = local;
+        this.#precoIngresso = precoIngresso;
+        this.#ingressosDisponiveis = ingressosDisponiveis;
     }
 
     get titulo () {
