@@ -1,0 +1,30 @@
+{
+  "name": "ppi-backend",
+  "version": "1.0.0",
+  "description": "Backend da aplicação de cadastro de eventos",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gabrielpugas/ppi-backend.git"
+  },
+  "keywords": [
+    "Backend",
+    "aula",
+    "programação",
+    "internet"
+  ],
+  "author": "Gabriel Pugas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gabrielpugas/ppi-backend/issues"
+  },
+  "homepage": "https://github.com/gabrielpugas/ppi-backend#readme",
+  "dependencies": {
+    "mysql2": "^3.9.2"
+  }
+}
