@@ -1,8 +1,8 @@
 import Evento from "./modelo/Evento.js";
 
 const evento = new Evento(1,
-    "Copa do Mundo 2026",
-    "Copa do Mundo 2026",
+    "Copa do Mundo 2022",
+    "Copa do Mundo 2022",
     "2026-06-12",
     "10:00",
     "França",
@@ -11,13 +11,31 @@ const evento = new Evento(1,
     );
 
 
-let listaDeEventos = [];
-evento.consultar("3").then((listaDeEventos) => {
-    for (const evento of listaDeEventos) {
-        console.log(evento.toJSON());
-    }
-}).catch((erro) => {
-    console.log('Descrição do erro:\n'+erro);
-});
+// evento.gravar(evento).then(() => {
+//     console.log("O ID do evento foi gravado foi: " + evento.id +"\nEvento gravado com sucesso.")
+// }).catch((erro) => {
+//     console.log('Descrição do erro:\n'+erro);
+// })
+
+// evento.atualizar(evento).then(() => {
+//     console.log("O evento "+evento.id+" foi atualizado.")
+// }).catch((erro) => {
+//     console.log('Descrição do erro:\n'+erro);
+// })
+
+// evento.excluir(evento).then(() => {
+//     console.log("O evento "+evento.id+" foi excluído.")
+// }).catch((erro) => {
+//     console.log('Descrição do erro:\n'+JSON.stringify(erro));
+// })
+
+// let listaDeEventos = [];
+// evento.consultar().then((listaDeEventos) => {
+//     for (const evento of listaDeEventos) {
+//         console.log(evento.toJSON());
+//     }
+// }).catch((erro) => {
+//     console.log('Descrição do erro:\n'+erro);
+// });
 
 

@@ -20,6 +20,7 @@ export default class ClienteDao {
             const [resultados, campos] = await conexao.execute(sql, parametros);
             evento.id = resultados.insertId;
         }
+        return evento.id
     }
 
     async atualizar (evento) {
@@ -63,9 +64,11 @@ export default class ClienteDao {
             sql = `select * from eventos where titulo like ?`;
             termoDePesquisa = '%' + termoDePesquisa + '%';
         }
+        else if (termoDePesquisa instanceof Number){
+            sql = `select * from eventos where id = ?`;                    
+        }
         else {
-            sql = `select * from eventos where id = ?`;
-                    
+            sql = `select * from eventos`;
         }
 
         const conexao = await conectar();
