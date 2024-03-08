@@ -1,8 +1,8 @@
 import Evento from "./modelo/Evento.js";
 
-const evento = new Evento(1,
-    "Copa do Mundo 2022",
-    "Copa do Mundo 2022",
+const evento = new Evento(13,
+    "Copa do Mundo 2030",
+    "Copa do Mundo 2030",
     "2026-06-12",
     "10:00",
     "França",
