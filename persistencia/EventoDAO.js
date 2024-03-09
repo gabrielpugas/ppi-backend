@@ -61,23 +61,29 @@ export default class ClienteDao {
         }
         let sql = '';
         let parametros = [];
+        // console.log(isNaN(termoDePesquisa));
+        // console.log(typeof termoDePesquisa === 'number');
         if (isNaN(termoDePesquisa)) {
-            sql = `select * from eventos where titulo like ?`;
-            termoDePesquisa = '%' + termoDePesquisa + '%';
             console.log("caso 1");
+            sql = `select * from eventos where titulo like ?`;
+            parametros = [
+                termoDePesquisa = '%' + termoDePesquisa + '%'
+            ]
         }
-        else if ( typeof termoDePesquisa === "number"){
+        
+        else if (!isNaN(termoDePesquisa) && termoDePesquisa !== '') {
+            console.log("caso 2");
             sql = `select * from eventos where id = ? or titulo like ? order by id asc`;
             let termoDePesquisa2
             parametros = [
                 termoDePesquisa,
-                termoDePesquisa2 = '%' + termoDePesquisa.toString() + '%'
+                termoDePesquisa2 = '%' + termoDePesquisa + '%'
             ];
-            console.log(sql);                
+            // console.log(sql);                
         }
         else {
-            sql = `select * from eventos order by id asc`;
             console.log("caso 3");
+            sql = `select * from eventos order by id asc`;
         }
 
         const conexao = await conectar();

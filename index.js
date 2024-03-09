@@ -1,11 +1,11 @@
 import Evento from "./modelo/Evento.js";
 
-const evento = new Evento(13,
-    "Copa do Mundo 2030",
-    "Copa do Mundo 2030",
-    "2026-06-12",
+const evento = new Evento(3,
+    "Copa do Mundo 2050",
+    "Copa do Mundo 2050",
+    "2050-06-12",
     "10:00",
-    "França",
+    "Alemanha",
     100,
     100
     );
@@ -29,11 +29,14 @@ const evento = new Evento(13,
 //     console.log('Descrição do erro:\n'+JSON.stringify(erro));
 // })
 
-// let listaDeEventos = [];
-// evento.consultar().then((listaDeEventos) => {
-//     for (const evento of listaDeEventos) {
-//         console.log(evento.toJSON());
+// evento.consultar(5).then((listaDeEventos) => {
+//     if (listaDeEventos.length === 0) {
+//         console.log("Nenhum evento encontrado.")
 //     }
+//     else
+//         for (const evento of listaDeEventos) {
+//             console.log(evento.toJSON());
+//         }
 // }).catch((erro) => {
 //     console.log('Descrição do erro:\n'+erro);
 // });
