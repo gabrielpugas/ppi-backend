@@ -1,3 +1,4 @@
+import  Evento  from '../modelo/Evento.js';
 export default class ClienteControle {
     gravar(requisicao, resposta) {
         resposta.type('application/json');
@@ -113,7 +114,7 @@ export default class ClienteControle {
         resposta.type('application/json');
         if (requisicao.method === "GET") {
             const termoDePesquisa = requisicao.params.termoDePesquisa;
-            const evento = Evento(0);
+            const evento = new Evento();
             evento.consultar(termoDePesquisa).then((eventos) => {
                 resposta.status(200).json(eventos);
             }).catch((erro) => {
