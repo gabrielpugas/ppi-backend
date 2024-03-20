@@ -1,4 +1,3 @@
-import Evento from "./modelo/Evento.js";
 import express from 'express';
 import rotaEvento from "./rotas/rotaEvento.js";
 

@@ -5,6 +5,7 @@ const rotaEvento = new Router();
 const eventoControle = new EventoControle();
 
 rotaEvento
+.get('/' , eventoControle.consultar)
 .get('/:termoDePesquisa', eventoControle.consultar)
 .post('/', eventoControle.gravar)
 .patch('/:id', eventoControle.atualizar)
